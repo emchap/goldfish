@@ -571,7 +571,7 @@ FEATURES:
    `sys/leases` endpoints in the API. These are located in the new top level
    navigation item "Leases".
  * **Filtered Mounts for Performance Mode Replication**: Whitelists or
-   denylists of mounts can be defined per-secondary to control which mounts
+   blacklists of mounts can be defined per-secondary to control which mounts
    are actually replicated to that secondary. This can allow targeted
    replication of specific sets of data to specific geolocations/datacenters.
  * **Disaster Recovery Mode Replication (Enterprise Only)**: There is a new
@@ -1006,7 +1006,7 @@ IMPROVEMENTS:
 BUG FIXES:
 
  * auth/token: Fix regression in 0.6.4 where using token store roles as a
-   denylist (with only `disallowed_policies` set) would not work in most
+   blacklist (with only `disallowed_policies` set) would not work in most
    circumstances [GH-2286]
  * physical/s3: Page responses in client so list doesn't truncate [GH-2224]
  * secret/cassandra: Stop a connection leak that could occur on active node
@@ -1404,7 +1404,7 @@ IMPROVEMENTS:
 
 BUG FIXES:
 
- * auth/aws-ec2: Added a nil check for stored allowlist identity object
+ * auth/aws-ec2: Added a nil check for stored whitelist identity object
    during renewal [GH-1542]
  * auth/cert: Fix panic if no client certificate is supplied [GH-1637]
  * auth/token: Don't report that a non-expiring root token is renewable, as
